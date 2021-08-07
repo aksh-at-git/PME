@@ -21,7 +21,8 @@ function unBlock(){
         
 }
 
-
+var alarmSound = new Audio();
+alarmSound.src = 'alarm.mp3';
 
 
 chrome.runtime.onMessage.addListener(gotMessage);
@@ -75,6 +76,7 @@ function gotMessage(msg, sender, sendResponse){
   
     }else if(msg.name === "Heyya"){
         
+        alarmSound.play();
         console.log(msg.message);
         alert(msg.message);
     }else{
